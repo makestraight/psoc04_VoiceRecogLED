@@ -125,7 +125,7 @@ void cyberon_asr_process(short *lpsSample, int nNumSample)
 	if(bEnableTimeout && (nCount += nNumSample) > TIMEOUT)
 	{
 		g_lpfnCallback(__func__, "##########Timeout##########", itoa(TIMEOUT, pchBuf, 10));
-	    cyhal_gpio_write(CYBSP_USER_LED, CYBSP_LED_STATE_OFF);
+	    	cyhal_gpio_write(CYBSP_USER_LED, CYBSP_LED_STATE_OFF);
 		bEnableTimeout = !bEnableTimeout;
 		g_hDSpotter = DSpotter_Init_Multi((BYTE *)CybModelGetBase(g_hCybModel), (BYTE **)&g_lppbyGroup[0], 1, MAX_TIME, g_lpbyMemPool, g_nMemPool, NULL, 0, &nErr, (BYTE *)&__start_license_data);
 #if ENABLE_AGC
